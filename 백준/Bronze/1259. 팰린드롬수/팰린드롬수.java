@@ -4,26 +4,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		while ( true ) {
-			String N = sc.nextLine();
-			int O = 0;
-			if (N.equals("0")) {
-				break;
-			}
-			for (int i = 0; i < N.length(); i++) {
-				int ch1 = N.length() - (N.length()-i);
-				int ch2 = N.length() - i - 1;
-				if (N.charAt(ch1) == N.charAt(ch2)) {
-					O++;
+		String str;
+		while(true) {
+			str = sc.next();
+			if (str.equals("0")) break;
+			boolean isPalindrom = true;
+			for (int i = 0; i < str.length()/2; i++) {
+				if ( str.charAt(i) != str.charAt(str.length()-1-i)) {
+					isPalindrom = false;
+					break;
 				}
 			}
-			if ( O == N.length()) {
-				System.out.println("yes");
-			}
-			else {
-				System.out.println("no");
-			}
+			System.out.println(isPalindrom?"yes":"no");
 		}
 	}
-}
 
+}
